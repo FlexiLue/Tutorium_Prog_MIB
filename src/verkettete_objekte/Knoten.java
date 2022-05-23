@@ -33,23 +33,5 @@ public class Knoten {
 			}
 		}
 		
-		
-		
-//		while(root != null) {
-//			pointer = root;
-//			if(n < root.x) {
-//				root = root.links;
-//			} else {
-//				root = root.rechts;
-//			}
-//		}
-//		
-//		if(pointer == null) {
-//			pointer = newKnoten;
-//		} else if (n < pointer.x) {
-//			pointer.links = newKnoten;
-//		} else {
-//			pointer.rechts = newKnoten;
-//		}
 	}
 }
