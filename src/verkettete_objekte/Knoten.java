@@ -1,49 +1,57 @@
 package verkettete_objekte;
 
-public class Knoten {
-	int wert;
+public class Knoten{
+	int x; 
 	Knoten links; 
-	Knoten rechts;
+	Knoten rechts; 
 	
-	public Knoten(int wert) {
-		this.wert = wert;
-		this.links = null; 
+	public Knoten(int x) {
+		this.x = x;
+		this.links = null;
 		this.rechts = null;
 	}
-	
-	public void einfuegen(int n) {
-		Knoten knoten = new Knoten(n);
-		
-		if(n > wert) {
-			if(rechts != null) {
-				rechts.einfuegen(n);
+
+	public void einfuegen(int wert) {
+		if(wert < x) {
+			if(links == null) {
+				links = new Knoten(wert);
 			} else {
-				rechts = knoten;
-				return;
+				links.einfuegen(wert);
 			}
-		} else if (n < wert) {
-			if(links != null) {
-				links.einfuegen(n);
+			
+		} else if (wert > x) {
+			if(rechts == null) {
+				rechts = new Knoten(wert);
 			} else {
-				links = knoten;
-				return;
+				rechts.einfuegen(wert);
 			}
+			
 		}
 	}
 	
+	@Override
 	public String toString() {
-		if(links == null && rechts == null ) {
-			return "(" + wert +")";
+		
+		if(links == null && rechts == null) {
+			return "(" + x + ")";
+		} else if (links == null) {
+			return "(" + x + rechts.toString() + ")";
+		} else if (rechts == null) {
+			return "(" + links.toString() + x + ")";
+		} else {
+			return "(" + links.toString() + x + rechts.toString() + ")";
 		}
-		if(links != null && rechts != null) {
-			return "(" + links.toString() + wert + rechts.toString() + ")";
+		
+	}
+	
+	public boolean suchen(int wert) {
+		if(wert == this.x) {
+			return true;
+		} else if(wert < x && links != null ) {
+			return links.suchen(wert);
+		} else if(wert > x && rechts != null) {
+			return rechts.suchen(wert);
 		}
-		if(rechts != null) {
-			return "" + wert + rechts.toString() + ")";
-		}
-		if(links != null) {
-			return "(" + links.toString() + wert + ")";
-		}
-		return ""; 
+		return false;
 	}
 }

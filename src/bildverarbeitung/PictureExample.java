@@ -49,7 +49,7 @@ public class PictureExample {
 	}*/
 	
 	//Aufgabe E
-	/*for(int y = 0; y < p[0].length; y++) {
+	for(int y = 0; y < p[0].length; y++) {
 		for(int x = 0; x < p.length; x++) {
 			int a = x + 180;
 			if(a < p.length) {
@@ -58,10 +58,10 @@ public class PictureExample {
 				picture[a-p.length][y] = p[x][y];
 			}
 		}
-	}*/
+	}
     
     //Aufgabe F
-    for(int y = 0; y < p[0].length; y++) {
+    /*for(int y = 0; y < p[0].length; y++) {
     	for(int x = 0; x < p.length; x++){
     		//if(x+y > p.length-1) {
     		if(x + (p.length-1-y) > p.length-1) {
@@ -72,7 +72,7 @@ public class PictureExample {
     			picture[x + (p.length-1-y)][y] = p[x][y];
     		}
     	}
-	}
+	}*/
 	
 	System.out.println("Höhe: " + p[0].length + " Breite: " + p.length);
 	
